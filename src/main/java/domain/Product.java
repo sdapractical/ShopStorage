@@ -1,11 +1,13 @@
 package domain;
 
+import java.math.BigDecimal;
+
 public class Product {
 
     private long id;
     private String name;
     private String manufacturer;
-    private boolean price;
+    private BigDecimal price;
     private int quantity;
 
 
@@ -33,11 +35,11 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 
-    public boolean isPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(boolean price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
