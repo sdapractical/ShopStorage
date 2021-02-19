@@ -1,14 +1,26 @@
 package domain;
 
-import java.util.List;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
+
 
 public class Category {
-    private long id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long categoryId;
     private String title;
-    private List<Product> productList;
+    @OneToMany(mappedBy = "category")
+    private Set<Product> productList;
 
-    public long getId(){
-        return id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Long getCategoryId(){
+        return categoryId;
     }
 
     public String getTitle() {
@@ -19,7 +31,7 @@ public class Category {
         this.title = title;
     }
 
-    public List<Product> getProductList() {
+    public Set<Product> getProductList() {
         return productList;
     }
 }
