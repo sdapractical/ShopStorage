@@ -1,14 +1,25 @@
 package domain;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Table(name = "products")
 public class Product {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String name;
     private String manufacturer;
+
+    @Column(name = "price", precision = 2, scale = 2)
     private BigDecimal price;
-    private int quantity;
+    private Integer quantity;
+
+    @ManyToOne
+    @JoinColumn(name="categoryId")
+    private Category category;
+
 
     public long getId() {
         return id;
@@ -21,6 +32,7 @@ public class Product {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -41,11 +53,11 @@ public class Product {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 }
