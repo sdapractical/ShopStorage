@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `shopStorage`.`product`(
         `manufacturer` VARCHAR(500) NULL DEFAULT NULL,
         `quantity` BIGINT(20) NULL DEFAULT NULL,
         `date` DATE NULL DEFAULT NULL,
-        `price` NUMBER(10000) NULL DEFAULT NULL,
+        `price` NUMBER(100,2) NULL DEFAULT NULL,
         `completed` BOOLEAN NOT NULL DEFAULT FALSE,
         PRIMARY KEY (`id`)),
         CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE SET NULL)
